@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tang.mapper.TrendMapper">
+    <select id="getByDateId" resultType="trend">
+        select *
+        from trend
+        where date_id = #{dateId};
+    </select>
+    <select id="confirmedCount" resultType="int">
+        select confirmed_count
+        from trend order by id desc limit 30;
+    </select>
+    <select id="curedCount" resultType="int">
+        select cured_count
+        from trend order by id desc limit 30;
+    </select>
+    <select id="currentConfirmedCount" resultType="int">
+        select current_confirmed_count
+        from trend order by id desc limit 30;
+    </select>
+    <select id="deadCount" resultType="int">
+        select dead_count
+        from trend order by id desc limit 30;
+    </select>
+    <select id="dateId" resultType="int">
+        select date_id
+        from trend order by id desc limit 30;
+    </select>
+    <select id="confirmedIncr" resultType="int">
+        select confirmed_incr
+        from trend order by id desc limit 30;
+    </select>
+    <select id="curedIncr" resultType="int">
+        select cured_incr
+        from trend order by id desc limit 30;
+    </select>
+    <select id="currentConfirmedIncr" resultType="int">
+        select current_confirmed_incr
+        from trend order by id desc limit 30;
+    </select>
+    <select id="deadIncr" resultType="int">
+        select dead_incr
+        from trend order by id desc limit 30;
+    </select>
+</mapper>
+
+
+
