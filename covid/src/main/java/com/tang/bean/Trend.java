@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Trend {
+    private Integer id;
     private Integer dateId; // 时间
     private Integer confirmedCount; // 累计确诊
     private Integer curedCount; // 累计治愈
