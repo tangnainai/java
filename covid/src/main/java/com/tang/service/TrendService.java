@@ -12,13 +12,4 @@ import java.util.List;
  */
 public interface TrendService extends IService<Trend> {
     boolean getByDateId(Integer dateId);
-    List<Integer> dateId();
-    List<Integer> confirmedCount();
-    List<Integer> curedCount();
-    List<Integer> currentConfirmedCount();
-    List<Integer> deadCount();
-    List<Integer> confirmedIncr();
-    List<Integer> curedIncr();
-    List<Integer> currentConfirmedIncr();
-    List<Integer> deadIncr();
 }

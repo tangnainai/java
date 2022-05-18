@@ -7,42 +7,6 @@
         from trend
         where date_id = #{dateId};
     </select>
-    <select id="confirmedCount" resultType="int">
-        select confirmed_count
-        from trend order by id desc limit 30;
-    </select>
-    <select id="curedCount" resultType="int">
-        select cured_count
-        from trend order by id desc limit 30;
-    </select>
-    <select id="currentConfirmedCount" resultType="int">
-        select current_confirmed_count
-        from trend order by id desc limit 30;
-    </select>
-    <select id="deadCount" resultType="int">
-        select dead_count
-        from trend order by id desc limit 30;
-    </select>
-    <select id="dateId" resultType="int">
-        select date_id
-        from trend order by id desc limit 30;
-    </select>
-    <select id="confirmedIncr" resultType="int">
-        select confirmed_incr
-        from trend order by id desc limit 30;
-    </select>
-    <select id="curedIncr" resultType="int">
-        select cured_incr
-        from trend order by id desc limit 30;
-    </select>
-    <select id="currentConfirmedIncr" resultType="int">
-        select current_confirmed_incr
-        from trend order by id desc limit 30;
-    </select>
-    <select id="deadIncr" resultType="int">
-        select dead_incr
-        from trend order by id desc limit 30;
-    </select>
 </mapper>
 
 

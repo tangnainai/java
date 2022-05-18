@@ -48,24 +48,24 @@ public class TrendController {
     @PostMapping("/l2")
     public JSONObject left2(){
         JSONObject json = new JSONObject();
-        List<Integer> dateId = this.integerList(trendService.dateId());
-        List<Integer> confirmedIncr = this.integerList(trendService.confirmedIncr());
-        List<Integer> curedIncr = this.integerList(trendService.curedIncr());
-        List<Integer> currentConfirmedIncr = this.integerList(trendService.currentConfirmedIncr());
-        List<Integer> deadIncr = this.integerList(trendService.deadIncr());
+        List<Trend> list = trendService.list();
+        List<Integer> dateId = new ArrayList<>();
+        List<Integer> confirmedIncr = new ArrayList<>();
+        List<Integer> curedIncr = new ArrayList<>();
+        List<Integer> currentConfirmedIncr = new ArrayList<>();
+        List<Integer> deadIncr = new ArrayList<>();
+        for (Trend trend : list) {
+            dateId.add(trend.getDateId());
+            confirmedIncr.add(trend.getConfirmedIncr());
+            curedIncr.add(trend.getCuredIncr());
+            currentConfirmedIncr.add(trend.getCurrentConfirmedIncr());
+            deadIncr.add(trend.getDeadIncr());
+        }
         json.put("dateId",dateId);
         json.put("confirmedIncr",confirmedIncr);
         json.put("curedIncr",curedIncr);
         json.put("currentConfirmedIncr",currentConfirmedIncr);
         json.put("deadIncr",deadIncr);
         return json;
-    }
-    //list 从新排序
-    public List<Integer> integerList(List<Integer> list){
-        List<Integer> arrayList = new ArrayList<>();
-        for (int i = list.size() - 1; i >= 0; i--) {
-            arrayList.add(list.get(i));
-        }
-        return arrayList;
     }
 }
