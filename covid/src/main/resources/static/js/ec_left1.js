@@ -1,7 +1,7 @@
 var ec_left1 = echarts.init(document.querySelector("#l1"), "dark");
 var ec_left1_option = {
     title: {
-        text: "近30天数据",
+        text: "全国数据变化",
         textStyle: {
 
         },

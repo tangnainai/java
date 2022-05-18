@@ -24,11 +24,19 @@ public class TrendController {
     @PostMapping("/l1")
     public JSONObject left1(){
         JSONObject json = new JSONObject();
-        List<Integer> dateId = this.integerList(trendService.dateId());
-        List<Integer> deadCount = this.integerList(trendService.deadCount());
-        List<Integer> currentConfirmedCount = this.integerList(trendService.currentConfirmedCount());
-        List<Integer> confirmedCount = this.integerList(trendService.confirmedCount());
-        List<Integer> curedCount = this.integerList(trendService.curedCount());
+        List<Trend> list = trendService.list();
+        List<Integer> dateId = new ArrayList<>();
+        List<Integer> deadCount = new ArrayList<>();
+        List<Integer> currentConfirmedCount = new ArrayList<>();
+        List<Integer> confirmedCount = new ArrayList<>();
+        List<Integer> curedCount = new ArrayList<>();
+        for (Trend trend : list) {
+            dateId.add(trend.getDateId());
+            deadCount.add(trend.getDeadCount());
+            currentConfirmedCount.add(trend.getCurrentConfirmedCount());
+            confirmedCount.add(trend.getConfirmedCount());
+            curedCount.add(trend.getCuredCount());
+        }
         json.put("dateId",dateId);
         json.put("deadCount",deadCount);
         json.put("currentConfirmedCount",currentConfirmedCount);
