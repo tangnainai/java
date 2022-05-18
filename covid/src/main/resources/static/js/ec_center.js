@@ -79,7 +79,7 @@ var ec_center2_option = {
         name: "累计确诊人数",
         type: "map",
         geoIndex: 0,
-        data: window.dataList
+        data: []
     }]
 
 };

@@ -53,7 +53,7 @@ public class DetailsCrawler {
             detail.setTime(time);
             QueryWrapper<Details> Name = new QueryWrapper<>();
             Name.eq("province_short_name",detail.getProvinceShortName());
-            detailsService.saveOrUpdate(detail);
+            detailsService.saveOrUpdate(detail,Name);
         }
         System.out.println("DetailsCrawler==>已经修改地图数据");
     }

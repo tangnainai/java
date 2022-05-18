@@ -34,7 +34,7 @@ function get_c2_data() {
         url: "/c2",
         success: function (response) {
             ec_center2_option.series[0].data=response;
-            //console.log(response);
+            // console.log(response);
            // console.log(ec_center2_option.series[0].data);
             ec_center2.setOption(ec_center2_option);
         }
@@ -46,7 +46,7 @@ function get_r1_data() {
         type: "post",
         url: "/r1",
         success: function (response) {
-            console.log(response);
+            // console.log(response);
             ec_right1_option.series[0].data[0]=response.currentConfirmedIncr;
             ec_right1_option.series[0].data[1]=response.confirmedIncr;
             // ec_right1_option.xAxis[0].data=response.city;
@@ -62,7 +62,7 @@ function get_r2_data() {
         type: "post",
         url: "/r2",
         success: function (response) {
-            console.log(response);
+            // console.log(response);
             ec_right2_option.series[0].data[0]=response.curedIncr;
             ec_right2_option.series[0].data[1]=response.deadIncr;
             // ec_right1_option.xAxis[0].data=response.city;
@@ -77,7 +77,7 @@ function get_l1_data() {
         type: "post",
         url: "/l1",
         success: function (response) {
-            console.log(response);
+            // console.log(response);
             ec_left1_option.xAxis[0].data=response.dateId;
             ec_left1_option.series[0].data=response.confirmedCount;
             ec_left1_option.series[1].data=response.currentConfirmedCount;
