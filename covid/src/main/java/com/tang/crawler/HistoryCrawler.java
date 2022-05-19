@@ -55,6 +55,7 @@ public class HistoryCrawler {
         List<HistoryBean> list = JSON.parseArray(json, HistoryBean.class);
         for (HistoryBean bean : list) {
             if(bean.getProvinceName().equals("中国")){
+//                System.err.println(bean);
                 bean.setTime(time);
                 HistoryBean historyBean = new HistoryBean(bean.getTime(),bean.getCurrentConfirmedCount(),
                         bean.getConfirmedCount(),bean.getCuredCount(),bean.getDeadCount(),bean.getProvinceName(),bean.getStatisticsData());
@@ -62,11 +63,12 @@ public class HistoryCrawler {
                 update.eq("province_name","中国");
                 historyService.saveOrUpdate(historyBean,update);
                 // 右边的柱状图
-                IncrVo incrVo = bean.getIncrVo();
-                incrVo.setTime(time);
-                incrVo.setId(1);
-                incrVoService.updateById(incrVo);
-                System.out.println("修改incrVo了");
+                if (bean.getIncrVo()!=null){
+                    IncrVo incrVo = bean.getIncrVo();
+                    incrVo.setTime(time);
+                    incrVo.setId(1);
+                    incrVoService.updateById(incrVo);
+                }
             }
         }
         System.out.println("HistoryCrawler == >已修改头部数据");

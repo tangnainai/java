@@ -22,28 +22,4 @@ public class TrendServiceImpl extends ServiceImpl<TrendMapper, Trend>implements 
     public boolean getByDateId(Integer dateId) {
         return (trendMapper.getByDateId(dateId)==null)?true:false;
     }
-
-    @Override
-    public List<Integer> dateId() {
-        return trendMapper.dateId();
-    }
-    @Override
-    public List<Integer> confirmedIncr() {
-        return trendMapper.confirmedIncr();
-    }
-
-    @Override
-    public List<Integer> curedIncr() {
-        return trendMapper.curedIncr();
-    }
-
-    @Override
-    public List<Integer> currentConfirmedIncr() {
-        return trendMapper.currentConfirmedIncr();
-    }
-
-    @Override
-    public List<Integer> deadIncr() {
-        return trendMapper.deadIncr();
-    }
 }
