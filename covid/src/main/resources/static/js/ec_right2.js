@@ -16,7 +16,7 @@ var ec_right2_option = {
         }
     },
     xAxis: [{
-        data: ["今日治愈","今日死亡"],
+        data: ["较昨日治愈","较昨日死亡"],
         type: 'category',
     }],
     yAxis: {
