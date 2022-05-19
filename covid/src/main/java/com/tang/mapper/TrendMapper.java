@@ -14,5 +14,4 @@ import java.util.List;
  */
 @Mapper
 public interface TrendMapper extends BaseMapper<Trend> {
-    Trend getByDateId(@Param("dateId")Integer dateId);
 }

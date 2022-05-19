@@ -1,20 +1,14 @@
 package com.tang.controller;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tang.bean.HistoryBean;
-import com.tang.bean.IncrVo;
 import com.tang.service.HistoryService;
-import com.tang.service.IncrVoService;
-import org.openqa.selenium.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author tang
@@ -25,11 +19,9 @@ import java.util.List;
 public class HistoryController {
     @Autowired
     private HistoryService historyService;
-    @Autowired
-    private IncrVoService incrVoService;
     @PostMapping("/c1")
     public JSONObject history(){
-        HistoryBean today = historyService.findToday();
+        HistoryBean today = historyService.getById(1);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("dead",today.getDeadCount());
         jsonObject.put("confirm",today.getCurrentConfirmedCount());
@@ -44,19 +36,19 @@ public class HistoryController {
     }
     @PostMapping("/r1")
     public JSONObject ecRight1(){
-        IncrVo query = incrVoService.queryById();
+        HistoryBean byId = historyService.getById(1);
+        String incrVo = byId.getIncrVo();
+        JSONObject ivJson = JSON.parseObject(incrVo);
+        System.out.println(ivJson);
+        Integer currentConfirmedIncr = (Integer) ivJson.get("currentConfirmedIncr");
+        Integer confirmedIncr = (Integer) ivJson.get("currentConfirmedIncr");
+        Integer curedIncr = (Integer) ivJson.get("curedIncr");
+        Integer deadIncr = (Integer) ivJson.get("deadIncr");
         JSONObject json = new JSONObject();
-        json.put("currentConfirmedIncr",query.getCurrentConfirmedIncr());
-        json.put("confirmedIncr",query.getConfirmedIncr());
+        json.put("currentConfirmedIncr",currentConfirmedIncr);
+        json.put("confirmedIncr",confirmedIncr);
+        json.put("curedIncr",curedIncr);
+        json.put("deadIncr",deadIncr);
         return json;
     }
-    @PostMapping("/r2")
-    public JSONObject ecRight2(){
-        IncrVo query = incrVoService.queryById();
-        JSONObject json = new JSONObject();
-        json.put("curedIncr",query.getCuredIncr());
-        json.put("deadIncr",query.getDeadIncr());
-        return json;
-    }
-
 }

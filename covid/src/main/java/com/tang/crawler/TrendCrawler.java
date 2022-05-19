@@ -9,7 +9,6 @@ import com.tang.service.TrendService;
 import com.tang.utils.HttpUtils;
 import com.tang.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -34,7 +33,8 @@ public class TrendCrawler {
     public void trendCrawler(){
         String time = TimeUtils.format(System.currentTimeMillis(),"yy-MM-dd HH:mm:ss");
         // 1、 爬取json
-        String html = HttpUtils.getHtml(historyService.selectByName("中国"));
+        String statisticsData = historyService.getById(1).getStatisticsData();
+        String html = HttpUtils.getHtml(statisticsData);
         // 2、取出data
         JSONObject json = JSON.parseObject(html);
         String data = json.getString("data");

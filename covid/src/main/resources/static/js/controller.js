@@ -49,6 +49,8 @@ function get_r1_data() {
             // console.log(response);
             ec_right1_option.series[0].data[0]=response.currentConfirmedIncr;
             ec_right1_option.series[0].data[1]=response.confirmedIncr;
+            ec_right1_option.series[0].data[2]=response.curedIncr;
+            ec_right1_option.series[0].data[3]=response.deadIncr;
             // ec_right1_option.xAxis[0].data=response.city;
             // ec_right1_option.series[0].data=response.cityValue;
             ec_right1.setOption(ec_right1_option);

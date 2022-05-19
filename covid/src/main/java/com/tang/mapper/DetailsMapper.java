@@ -12,7 +12,4 @@ import org.apache.ibatis.annotations.Param;
  */
 @Mapper
 public interface DetailsMapper extends BaseMapper<Details> {
-    public Details detailsByName(@Param("name") String name);
-    public void insertDetails(Details details);
-    public void updateByName(Details details);
 }

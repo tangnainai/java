@@ -9,7 +9,4 @@ import com.tang.bean.Details;
  * @desc
  */
 public interface DetailsService extends IService<Details> {
-    public boolean detailsByName(String name);
-    void insertDetails(Details details);
-    public void updateByName(Details details);
 }

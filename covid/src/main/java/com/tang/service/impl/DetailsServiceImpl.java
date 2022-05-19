@@ -16,20 +16,4 @@ import org.springframework.stereotype.Service;
 public class DetailsServiceImpl extends ServiceImpl<DetailsMapper, Details> implements DetailsService {
     @Autowired
     private DetailsMapper detailsMapper;
-
-    @Override
-    public boolean detailsByName(String name) {
-        if (detailsMapper.detailsByName(name)==null) return true;
-        else return false;
-    }
-
-    @Override
-    public void insertDetails(Details details) {
-        detailsMapper.insertDetails(details);
-    }
-
-    @Override
-    public void updateByName(Details details) {
-        detailsMapper.updateByName(details);
-    }
 }

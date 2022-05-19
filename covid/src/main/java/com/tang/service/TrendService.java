@@ -11,5 +11,4 @@ import java.util.List;
  * @desc
  */
 public interface TrendService extends IService<Trend> {
-    boolean getByDateId(Integer dateId);
 }

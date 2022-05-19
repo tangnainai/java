@@ -2,7 +2,6 @@ package com.tang.crawler;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.sun.org.apache.xml.internal.serialize.ElementState;
 import com.tang.bean.Details;
 import com.tang.service.DetailsService;
 import com.tang.utils.HttpUtils;
@@ -14,9 +13,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

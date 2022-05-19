@@ -18,8 +18,4 @@ import java.util.List;
 public class TrendServiceImpl extends ServiceImpl<TrendMapper, Trend>implements TrendService {
     @Autowired
     private TrendMapper trendMapper;
-    @Override
-    public boolean getByDateId(Integer dateId) {
-        return (trendMapper.getByDateId(dateId)==null)?true:false;
-    }
 }

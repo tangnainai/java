@@ -14,20 +14,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HistoryServiceImpl extends ServiceImpl<HistoryMapper,HistoryBean> implements HistoryService {
-    @Autowired
-    private HistoryMapper historyMapper;
-    @Override
-    public HistoryBean findToday() {
-        return historyMapper.findToday();
-    }
 
-    @Override
-    public void insertBean(HistoryBean historyBean) {
-        historyMapper.insertBean(historyBean);
-    }
-
-    @Override
-    public String selectByName(String name) {
-        return historyMapper.selectByName(name);
-    }
 }

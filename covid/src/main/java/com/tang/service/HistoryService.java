@@ -10,7 +10,4 @@ import org.apache.ibatis.annotations.Param;
  * @desc
  */
 public interface HistoryService extends IService<HistoryBean> {
-    HistoryBean findToday();
-    void insertBean(HistoryBean historyBean);
-    String selectByName(String name);
 }

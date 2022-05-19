@@ -1,14 +1,9 @@
 package com.tang.crawler;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.mysql.cj.Session;
 import com.tang.bean.HistoryBean;
-import com.tang.bean.IncrVo;
 import com.tang.service.HistoryService;
-import com.tang.service.IncrVoService;
 import com.tang.utils.HttpUtils;
 import com.tang.utils.TimeUtils;
 import org.jsoup.Jsoup;
@@ -19,7 +14,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,8 +27,6 @@ import java.util.regex.Pattern;
 public class HistoryCrawler {
     @Autowired
     private HistoryService historyService;
-    @Autowired
-    private IncrVoService incrVoService;
 //
     @PostConstruct
     @Scheduled(cron = "0 0 12 * * ?")
@@ -57,18 +49,9 @@ public class HistoryCrawler {
             if(bean.getProvinceName().equals("中国")){
 //                System.err.println(bean);
                 bean.setTime(time);
-                HistoryBean historyBean = new HistoryBean(bean.getTime(),bean.getCurrentConfirmedCount(),
-                        bean.getConfirmedCount(),bean.getCuredCount(),bean.getDeadCount(),bean.getProvinceName(),bean.getStatisticsData());
                 QueryWrapper<HistoryBean> update = new QueryWrapper<>();
                 update.eq("province_name","中国");
-                historyService.saveOrUpdate(historyBean,update);
-                // 右边的柱状图
-                if (bean.getIncrVo()!=null){
-                    IncrVo incrVo = bean.getIncrVo();
-                    incrVo.setTime(time);
-                    incrVo.setId(1);
-                    incrVoService.updateById(incrVo);
-                }
+                historyService.saveOrUpdate(bean,update);
             }
         }
         System.out.println("HistoryCrawler == >已修改头部数据");

@@ -24,7 +24,7 @@ public class HistoryBean {
     private Integer curedCount; // 已治愈
     private Integer deadCount; // 死亡人数
     private String provinceName; // 国家
-    private IncrVo incrVo; // 昨天数据
+    private String incrVo; // 昨天数据
     private String statisticsData;// 链接
 
     public HistoryBean(String time, Integer currentConfirmedCount, Integer confirmedCount,

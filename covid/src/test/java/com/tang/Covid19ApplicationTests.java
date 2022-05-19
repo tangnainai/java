@@ -8,8 +8,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tang.bean.Details;
+import com.tang.bean.HistoryBean;
 import com.tang.bean.Trend;
 import com.tang.service.DetailsService;
+import com.tang.service.HistoryService;
 import com.tang.service.TrendService;
 import com.tang.utils.HttpUtils;
 import com.tang.utils.TimeUtils;
@@ -25,14 +27,6 @@ import java.util.List;
 class Covid19ApplicationTests {
     @Autowired
     private TrendService trendService;
-    @Test
-    void contextLoads() {
-        IPage<Trend> page = new Page<>(1,30);
-        QueryWrapper<Trend> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
-        IPage<Trend> list = trendService.page(page, wrapper);
-        list.getRecords().forEach(System.out::println);
-
-    }
-
+    @Autowired
+    private HistoryService historyService;
 }

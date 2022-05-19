@@ -12,7 +12,4 @@ import org.apache.ibatis.annotations.Param;
  */
 @Mapper
 public interface HistoryMapper extends BaseMapper<HistoryBean> {
-    HistoryBean findToday();
-    void insertBean(HistoryBean historyBean);
-    String selectByName(@Param("name") String name);
 }
