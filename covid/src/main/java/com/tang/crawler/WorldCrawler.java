@@ -2,7 +2,6 @@ package com.tang.crawler;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.tang.bean.HistoryBean;
 import com.tang.bean.World;
 import com.tang.service.WorldService;
 import com.tang.utils.HttpUtils;

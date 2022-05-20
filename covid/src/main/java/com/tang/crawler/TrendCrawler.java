@@ -3,6 +3,7 @@ package com.tang.crawler;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.tang.bean.HistoryBean;
 import com.tang.bean.Trend;
 import com.tang.service.HistoryService;
 import com.tang.service.TrendService;
@@ -33,7 +34,10 @@ public class TrendCrawler {
     public void trendCrawler(){
         String time = TimeUtils.format(System.currentTimeMillis(),"yy-MM-dd HH:mm:ss");
         // 1、 爬取json
-        String statisticsData = historyService.getById(1).getStatisticsData();
+        QueryWrapper<HistoryBean> wrapper = new QueryWrapper<>();
+        wrapper.eq("province_name","中国");
+        List<HistoryBean> historyList = historyService.list(wrapper);
+        String statisticsData = historyList.get(0).getStatisticsData();
         String html = HttpUtils.getHtml(statisticsData);
         // 2、取出data
         JSONObject json = JSON.parseObject(html);
