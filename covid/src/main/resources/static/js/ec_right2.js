@@ -1,7 +1,7 @@
 var ec_right2 = echarts.init(document.querySelector("#r2"), "dark");
 var ec_right2_option = {
     title: {
-        text: "疫情病人情况",
+        text: "各国(前10)现存确诊情况",
         textStyle: {
             color: "white",
         },
@@ -15,13 +15,13 @@ var ec_right2_option = {
             type: "shadow"
         }
     },
-    xAxis: [{
-        data: ["较昨日治愈","较昨日死亡"],
-        type: 'category',
-    }],
-    yAxis: {
+    xAxis: {
         type: "value"
     },
+    yAxis: [{
+        data: [],
+        type: 'category'
+    }],
     series: [{
         data: [],
         type: 'bar',
@@ -31,7 +31,15 @@ var ec_right2_option = {
                 // 没根柱子的颜色
                 color:function (params){
                     let colorList =[
-                        "#00a35c",
+                        "#9a4d4d",
+                        "#89ff02",
+                        "#021bff",
+                        "#c800ff",
+                        "#ffb702",
+                        "#e57602",
+                        "#de0101",
+                        "#bd0000",
+                        "#840000",
                         "#000000"
                     ];
                     return colorList[params.dataIndex];

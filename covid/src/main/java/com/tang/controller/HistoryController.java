@@ -39,7 +39,6 @@ public class HistoryController {
         HistoryBean byId = historyService.getById(1);
         String incrVo = byId.getIncrVo();
         JSONObject ivJson = JSON.parseObject(incrVo);
-        System.out.println(ivJson);
         Integer currentConfirmedIncr = (Integer) ivJson.get("currentConfirmedIncr");
         Integer confirmedIncr = (Integer) ivJson.get("currentConfirmedIncr");
         Integer curedIncr = (Integer) ivJson.get("curedIncr");

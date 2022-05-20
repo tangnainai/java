@@ -64,13 +64,11 @@ function get_r2_data() {
         type: "post",
         url: "/r2",
         success: function (response) {
-            // console.log(response);
-            ec_right2_option.series[0].data[0]=response.curedIncr;
-            ec_right2_option.series[0].data[1]=response.deadIncr;
-            // ec_right1_option.xAxis[0].data=response.city;
-            // ec_right1_option.series[0].data=response.cityValue;
+            console.log(response.confirmedCount);
+            console.log(response.provinceName);
+            ec_right2_option.yAxis[0].data=response.provinceName;
+            ec_right2_option.series[0].data=response.confirmedCount;
             ec_right2.setOption(ec_right2_option);
-            // console.log(ec_right1_option.xAxis[0].data[1]);
         }
     });
 }
