@@ -40,7 +40,7 @@ public class HistoryController {
         String incrVo = byId.getIncrVo();
         JSONObject ivJson = JSON.parseObject(incrVo);
         Integer currentConfirmedIncr = (Integer) ivJson.get("currentConfirmedIncr");
-        Integer confirmedIncr = (Integer) ivJson.get("currentConfirmedIncr");
+        Integer confirmedIncr = (Integer) ivJson.get("confirmedIncr");
         Integer curedIncr = (Integer) ivJson.get("curedIncr");
         Integer deadIncr = (Integer) ivJson.get("deadIncr");
         JSONObject json = new JSONObject();
